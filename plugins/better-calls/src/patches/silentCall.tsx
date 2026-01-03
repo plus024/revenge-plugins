@@ -71,7 +71,7 @@ export const patch = (storage: PluginStorage, unpatches: UnpatchFunction[]) => {
             const fragmentProps = rt?.props?.children?.[0]?.props
 
             // This can occasionally be undefined because when you call someone, the call buttons are removed and replaced with the hang up button
-            if (fragmentProps?.children)
+            if (Array.isArray(fragmentProps?.children))
                 fragmentProps.children = [
                     <IconButton
                         key="better-calls:silent-call-toggle"
