@@ -71,6 +71,7 @@ export const patch = (storage: PluginStorage, unpatches: UnpatchFunction[]) => {
             const fragmentProps = rt?.props?.children?.[0]?.props
 
             // This can occasionally be undefined because when you call someone, the call buttons are removed and replaced with the hang up button
+            // In bot DMs, it's an object.
             if (Array.isArray(fragmentProps?.children))
                 fragmentProps.children = [
                     <IconButton
